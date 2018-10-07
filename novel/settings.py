@@ -69,7 +69,14 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'novel.pipelines.NovelPipeline': 300,
+    'novel.pipelines.NovelMongoPipeline': 400,
 }
+
+MONGO_HOST = 'localhost'
+MONGO_DB = 'novels'
+
+# NOVEL_ITEMS = ['0_195','7_7763', '51_51253']
+NOVEL_ITEMS = ['', '39_39672']
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

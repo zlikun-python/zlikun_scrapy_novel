@@ -9,6 +9,16 @@ import scrapy
 
 
 class NovelItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    number = scrapy.Field()
+    name = scrapy.Field()
+    author = scrapy.Field()
+    cover = scrapy.Field()
+    origin_url = scrapy.Field()
+
+
+class ChapterItem(scrapy.Item):
+    novel_number = scrapy.Field()
+    number = scrapy.Field()
+    title = scrapy.Field()
+    content = scrapy.Field()
+    origin_url = scrapy.Field()
