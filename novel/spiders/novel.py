@@ -54,7 +54,7 @@ class NovelSpider(scrapy.Spider):
         novel_number = response.meta['novel_number']
         number = int(re.search(r'/(\d+).html$', response.url).group(1))
         title = response.xpath('//div[@class="bookname"]/h1/text()').extract_first().strip()
-        content = response.xpath('//div[@id="content"]/text()').extract_first().strip().replace('  ', '\r\n')
+        content = '\r\n'.join(response.xpath('//div[@id="content"]/p/text()').re(r'\S+'))
 
         yield {
             'novel_number': novel_number,
